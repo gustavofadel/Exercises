@@ -9,5 +9,5 @@ int n, x, y;
 int main () {_
     cin >> n >> x >> y;
 	
-	cout << n - __builtin_ctz(x) - 1 << "\n";
+    cout << n - __builtin_ctz(x) - 1 << "\n";
 }
