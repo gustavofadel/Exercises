@@ -11,33 +11,33 @@ stack<int> st;
 vector<int> adj[N];
 
 void dfs (int u) {
-	low[u] = num[u] = counter++;
-	st.push(u); 
-	vis[u] = 1;
+    low[u] = num[u] = counter++;
+    st.push(u); 
+    vis[u] = 1;
 	
-	for (int v: adj[u]) {
-		if (num[v] == -1) {
-		    dfs(v);
-		}
-		
-		if (vis[v]) {
-		    low[u] = min(low[u], low[v]);
-		}
+    for (int v: adj[u]) {
+        if (num[v] == -1) {
+            dfs(v);
 	}
+		
+	if (vis[v]) {
+	    low[u] = min(low[u], low[v]);
+	}
+    }
 	
-	if (low[u] == num[u]) {
-		while (true) {
-			int v = st.top(); st.pop();
-			vis[v] = 0;
-			comp[v] = numSCC;
+    if (low[u] == num[u]) {
+        while (true) {
+            int v = st.top(); st.pop();
+	    vis[v] = 0;
+	    comp[v] = numSCC;
 			
-			if (u == v) {
-			    break;
-			}
-		}
-		
-		numSCC++;
+	    if (u == v) {
+	        break;
+	    }
 	}
+		
+	numSCC++;
+    }
 }
  
 int main () {_
